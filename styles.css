@@ -304,30 +304,30 @@ input:checked ~ .labels::after {
 }
 
 .item2 {
-  box-shadow: 0 -50px 60px rgba(0, 255, 76, 0.199);
+  box-shadow: 0 -50px 60px rgba(255, 0, 0, 0.199);
 }
 
 .item3 {
-  box-shadow: 0 -50px 60px rgba(0, 255, 76, 0.199);
+  box-shadow: 0 -50px 60px rgba(255, 0, 221, 0.199);
 }
 
 
 
 .item1:hover {
   background-color: transparent; /* Change background-color on hover */
-  background-image: radial-gradient(circle at 50% 0, rgba(118, 255, 3, .2), rgba(0, 0, 0, 0) 80%), radial-gradient(circle at 50% 0, #035, rgba(0, 0, 0, 0));
+  background-image: radial-gradient(circle at 50% 0, rgba(0, 255, 0, .2), rgba(0, 0, 0, 0) 80%), radial-gradient(circle at 50% 0, #035, rgba(0, 0, 0, 0));
   transform: scale(1.00);
 }
 
 .item2:hover {
   background-color: transparent; /* Change background-color on hover */
-  background-image: radial-gradient(circle at 50% 0, rgba(118, 255, 3, .2), rgba(0, 0, 0, 0) 80%), radial-gradient(circle at 50% 0, #035, rgba(0, 0, 0, 0));
+  background-image: radial-gradient(circle at 50% 0, rgba(255, 0, 0, .2), rgba(0, 0, 0, 0) 80%), radial-gradient(circle at 50% 0, rgba(85, 0, 0, 0.671), rgba(0, 0, 0, 0));
   transform: scale(1.00);
 }
 
 .item3:hover {
   background-color: transparent; /* Change background-color on hover */
-  background-image: radial-gradient(circle at 50% 0, rgba(118, 255, 3, .2), rgba(0, 0, 0, 0) 80%), radial-gradient(circle at 50% 0, #035, rgba(0, 0, 0, 0));
+  background-image: radial-gradient(circle at 50% 0, rgba(186, 85, 211, .2), rgba(0, 0, 0, 0) 80%), radial-gradient(circle at 50% 0, #6a0dadaf, rgba(0, 0, 0, 0));
   transform: scale(1.00);
 }
 

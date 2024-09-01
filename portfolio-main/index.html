@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-left">
+                <a href="#home" class="brand">adam mcintyre</a>
+            </div>
+            <div class="nav-center">
+                <label class="toggle">
+                    <input type="checkbox" id="toggleButton">
+                    <span class="slider"></span>
+                    <span class="labels" data-on=" info" data-off="portfolio"></span>
+                </label>
+            </div>
+            <div class="nav-right">
+              <a href="https://www.linkedin.com/in/adam-mci" target="_blank" class="nav-link"><i class="fab fa-linkedin external-link-icon"></i> LinkedIn</a>
+              <a href="contact.html" class="nav-link"><i class="fas fa-external-link-alt external-link-icon"></i> Contact</a>
+          </div>
+          
+        </nav>
+    </header>
+    
+    
+    
+    
+    
+    
+    <section id="portfolio" class="toggle-section">
+      <div class="intro">
+        <p class="small-text">Hi, my name is</p>
+        <h1 class="big-text">Adam McIntyre</h1>
+        <p class="subheading">2nd year comp sci student in UCD</p>
+      </div>
+        <h2></h2>
+        <div class="work-section">
+            <div class="work-item item1">
+                <img src="images/worldeblack.jpg" alt="Project 1 Thumbnail" class="work-thumbnail">
+                <h3>Wordle Data Analysis</h3>
+                <p>Coded single-player, multiplayer, and simulation game modes in Wordle and proceeded to upload and analyse the data.</p>
+                <a href="wordle.html">
+                    <button class="learn-more">Learn More</button>
+                </a>
+            </div>
+            <div class="work-item item2">
+                <img src="images/stocks.jpeg" alt="Project 2 Thumbnail" class="work-thumbnail">
+                <h3>Backtesting Trading Strategy on S&P500</h3>
+                <p>Project done in Python testing a theory I had about the S&P500</p>
+                <a href="SPY.html">
+                    <button class="learn-more">Learn More</button>
+                </a>
+            </div>
+            <div class="work-item item3">
+                <img src="gantt.png" alt="Project 3 Thumbnail" class="work-thumbnail">
+                <h3>Gantt Chart Generator</h3>
+                <p>A project done in C, allowed the user to create, edit, upload and download Gantt Charts</p>
+                <a href="gantt.html">
+                    <button class="learn-more">Learn More</button>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="info" class="toggle-section" style="display: none;">
+        <h2>More Information</h2>
+        <p>More information about me and my interests coming soon. You can email me at adam.mcintyre22@gmail.com, I'm always happy for a chat</p>
+        <div class="about-section">
+          <div class="image-container">
+            <img src="images/cows.jpg" alt="Image 1">
+          </div>
+          <div class="image-container">
+            <img src="images/award.png" alt="Image 2">
+          </div>
+          <div class="image-container">
+            <img src="images/seamus.png" alt="Image 3">
+          </div>
+        </div>
+        
+    </section>
+    
+    
+    <footer>
+      <div class="footer-top-bar"></div>
+      <div class="footer-menu">
+          <div class="footer-menu-section">
+              <h3>Pages</h3>
+              <ul>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">Contact</a></li>
+                  <li><a href="#">Resume</a></li>
+              </ul>
+          </div>
+          <div class="footer-menu-section">
+              <h3>Connect With Me</h3>
+              <ul class="social-icons">
+                  <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                  <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                  <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                  <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+              </ul>
+          </div>
+      </div>
+  </footer>
+  
+
+    <script>
+        document.getElementById('toggleButton').addEventListener('change', function() {
+            const portfolioSection = document.getElementById('portfolio');
+            const infoSection = document.getElementById('info');
+            if (this.checked) {
+                portfolioSection.style.display = 'none';
+                infoSection.style.display = 'block';
+            } else {
+                portfolioSection.style.display = 'block';
+                infoSection.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

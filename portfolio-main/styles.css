@@ -1,0 +1,504 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  
+  
+}
+
+@font-face {
+  font-family: 'RetroFont';
+  src: url('fonts/RetroComputer.woff') format('woff'); 
+  font-weight: normal; 
+  font-style: normal; 
+}
+@font-face {
+  font-family: 'ManoloMono';
+  src: url('fonts/ManoloMono.woff') format('woff'); 
+  font-weight: normal; 
+  font-style: normal; 
+}
+
+/* title */
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: flex-start; /* Align items to the left */
+  height: 100vh; /* Full viewport height to center vertically */
+  text-align: left;
+  margin-left: 35%;
+  margin-top: 0;
+  text-shadow: 5px 5px 400px rgb(255, 255, 255);
+}
+
+.small-text {
+  font-size: 16px; /* Adjust the font size as needed */
+  color: #666; /* Color for small text */
+  font-family: 'RetroFont', sans-serif;
+  margin: 0; /* Remove margin */
+  padding: 0; /* Remove padding */
+}
+
+.big-text {
+  font-size: 100px; /* Adjust the font size as needed */
+  font-weight: bold; /* Make the text bold if desired */
+  margin: 0; /* Remove margin */
+  padding: 0; /* Remove padding */
+  font-family: 'ManoloMono', sans-serif;
+  
+}
+
+.subheading {
+  font-size: 20px; /* Adjust the font size as needed */
+
+  color: #888; /* Color for subheading */
+  margin-bottom: 100px;
+  margin-top: 10px; /* Add some space between big-text and subheading */
+  font-family: 'ManoloMono', sans-serif;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .intro {
+    margin-left: 0;
+    padding: 20px;
+    align-items: left; /* Center items on smaller screens */
+    text-align: left; /* Center text on smaller screens */
+  }
+  
+  .small-text {
+    font-size: 14px; /* Adjust the font size for mobile */
+  }
+  
+  .big-text {
+    font-size: 48px; /* Adjust the font size for mobile */
+  }
+  
+  .subheading {
+    font-size: 16px; /* Adjust the font size for mobile */
+    margin-bottom: 50px; /* Adjust margin for mobile */
+  }
+}
+
+
+
+
+ /* Hide scrollbar for Chrome, Safari and Opera */
+.example::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.example {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+} 
+
+header {
+  padding: 10px 20px;
+  background-color: #22222200;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: -webkit-sticky; /* For Safari */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.nav-left, .nav-center, .nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-right .external-link-icon {
+  display: inline-block; /* Ensure the icon is displayed as inline-block */
+}
+
+.brand {
+  font-size: 1.5em;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-link {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 1.05em;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .brand {
+    font-size: 1.1em;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .nav-link {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 0.9em;
+  }
+  .nav-right .external-link-icon {
+    display: none; /* Hide the icon on smaller screens */
+  }
+}
+
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+section {
+  padding: 20px;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+}
+
+
+
+
+
+/* Toggle Button Style */
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  height: 40px;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  background-color: transparent;
+  border-radius: 34px;
+  width: 134px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.568);
+  backdrop-filter: blur(5px);
+  transition: .4s;
+}
+
+.slider:before {
+  
+  position: absolute;
+  content: "";
+  height: 31px;
+  width: 65px;
+  left: 4px;
+  bottom: 4px;
+  background-color: rgba(255, 255, 255, 0.808);
+  
+  border-radius: 30px;
+  transition: .4s;
+}
+
+input:checked + .slider:before {
+  transform: translateX(60px);
+}
+
+.labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  font-size: 16px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  pointer-events: none;
+  letter-spacing: 0px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-style: bold;
+}
+
+.labels::before {
+  content: attr(data-off);
+  color: rgb(0, 0, 0);
+  
+}
+
+input:checked ~ .labels::before {
+  content: attr(data-on);
+  color: rgb(0, 0, 0);
+  position: absolute;
+  right: 10px;
+  
+}
+
+.labels::after {
+  content: attr(data-on);
+  color: white;
+  position: absolute;
+  right: 10px;
+  opacity: 1;
+  left: -9999999px;
+  
+}
+
+input:checked ~ .labels::after {
+  opacity: 1;
+  right: 10px;
+  content: attr(data-off);
+}
+
+@media (max-width: 768px) {
+  .labels {
+    font-size: 16px;
+  }
+
+  .slider {
+
+    border-radius: 34px;
+    width: 120px;
+
+  }
+  
+  .slider:before {
+    width: 70px;
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(40px);
+  }
+}
+
+
+/* Work Section Style */
+.work-section {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: column; 
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.work-item {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  width: 30%;
+  margin: 10px;
+  margin-top: 60px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  text-align: left;
+  transition: background-color 1s ease, background-image 1s ease; /* Separate transitions */
+}
+
+.item1 {
+  box-shadow: 0 -50px 60px rgba(0, 255, 76, 0.199);
+}
+
+.item2 {
+  box-shadow: 0 -50px 60px rgba(255, 0, 0, 0.199);
+}
+
+.item3 {
+  box-shadow: 0 -50px 60px rgba(255, 0, 221, 0.199);
+}
+
+
+
+.item1:hover {
+  background-color: transparent; /* Change background-color on hover */
+  background-image: radial-gradient(circle at 50% 0, rgba(0, 255, 0, 0.226), rgba(0, 0, 0, 0) 80%), radial-gradient(circle at 50% 0, rgb(0, 85, 28), rgba(0, 0, 0, 0));
+  transform: scale(1.00);
+}
+
+.item2:hover {
+  background-color: transparent; /* Change background-color on hover */
+  background-image: radial-gradient(circle at 50% 0, rgba(255, 0, 0, .2), rgba(0, 0, 0, 0) 80%), radial-gradient(circle at 50% 0, rgba(85, 0, 0, 0.671), rgba(0, 0, 0, 0));
+  transform: scale(1.00);
+}
+
+.item3:hover {
+  background-color: transparent; /* Change background-color on hover */
+  background-image: radial-gradient(circle at 50% 0, rgba(186, 85, 211, .2), rgba(0, 0, 0, 0) 80%), radial-gradient(circle at 50% 0, #6a0dadaf, rgba(0, 0, 0, 0));
+  transform: scale(1.00);
+}
+
+
+
+
+
+.work-thumbnail {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.work-item:hover .work-thumbnail {
+  transform: translateY(-10px); /* Move thumbnail slightly upwards on hover */
+  transform: scale(0.98);
+}
+
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .work-item {
+    width: 70%;
+  }
+}
+
+.work-item h3 {
+  margin-top: 0;
+}
+
+.learn-more {
+  background-color: #444;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  /* Add gradient background */
+  background-image: linear-gradient(45deg, #444 0%, #222  51%, #444  100%);
+  /* Add box shadow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  /* Add transition for smooth hover effect */
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.learn-more:hover {
+  background-color: #666;
+  /* Add slight scale effect on hover */
+  transform: scale(0.95);
+  /* Adjust box shadow on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Footer Menu */
+footer {
+  background-color: #000;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-top-bar {
+  background-color: #444; /* Grey bar color */
+  height: 1px; /* Thin bar height */
+}
+
+.footer-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px; /* Add margin to separate the bar from the menu */
+}
+
+.footer-menu-section {
+  margin: 0 20px;
+}
+
+.footer-menu-section h3 {
+  margin-bottom: 10px;
+}
+
+.footer-menu-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-menu-section ul li {
+  margin-bottom: 5px;
+}
+
+.footer-menu-section ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+}
+
+.social-icons li {
+  margin: 0 5px;
+}
+
+.social-icons li a {
+  color: #fff;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+
+@media (max-width: 768px) {
+  .footer-menu-section {
+      margin: 10px 0;
+  }
+}
+
+/* info section */
+.about-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.image-container {
+  width: 700px; /* Adjust width as needed */
+  height: 600px; /* Adjust height as needed */
+  border-radius: 20px; /* Rounded corners */
+  overflow: hidden; /* Hide overflow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Small drop shadow */
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio */
+}
+
+@media (max-width: 768px) {
+  .image-container {
+    width: 700px; /* Adjust width as needed */
+    height: 300px; /* Adjust height as needed */
+    border-radius: 20px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Small drop shadow */
+  }
+}
+
+

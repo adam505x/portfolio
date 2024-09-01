@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portfolio</title>
+        <link rel="stylesheet" href="wordle.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    </head>
+    
+<body>
+    <header>
+        <nav>
+            <div class="nav-left">
+                <a href="index.html" class="brand">adam mcintyre</a>
+            </div>
+            <div class="nav-center">
+
+            </div>
+            <div class="nav-right">
+              <a href="https://www.linkedin.com/in/adam-mci/" target="_blank" class="nav-link"><i class="fab fa-linkedin external-link-icon"></i> LinkedIn</a>
+              <a href="contact.html" class="nav-link"><i class="fas fa-external-link-alt external-link-icon"></i> Contact</a>
+          </div>
+          
+        </nav>
+    </header>
+    
+    <section style="margin: 40px; font-family: Arial, sans-serif; line-height: 1.8; font-size: 18px;">
+        <h2 style="font-size: 28px; color: white;">How Does the Gantt Display Work?</h2>
+        <p>
+            The Gantt is displayed first by printing the months, which are stored as enums as per the requirements.
+            The function <code>printStraightLine()</code> is utilized to print a straight line across.
+            The function <code>printTask(struct Task task)</code> is used to print each task name and the appropriate boxes filled in.
+            The correct number of spaces between the task name and the "|" character is calculated by subtracting the length of the task name from 15.
+        </p>
+        <p>
+            To print the correct boxes "filled in" (with XXX), I call the function <code>taskArray()</code>. 
+            This takes two parameters: <code>task.startMonth</code> and <code>task.endMonth</code>. 
+            These can be found in the struct of structs and represent the months the tasks start and end in.
+        </p>
+        <p>
+            <code>taskArray()</code> starts by initializing memory to store an array 
+            <code>[0,0,0,0,0,0,0,0,0,0,0,0]</code> (12 0's representing the 12 months).
+            From the start month to the end month inclusive, the appropriate indexes are swapped from 0 to 1.
+            Then, using a simple if statement, I know to print "XXX |" or " |".
+            Then the dependencies are printed by fetching the data from the struct of structs using <code>task.dependencies[i]</code>, where <code>i</code> loops from 0 to the number of tasks.
+        </p>
+    
+        <h2 style="font-size: 28px; color: white;">How Are Tasks Mapped to Structs?</h2>
+        <p>
+            The task mapping is done using the following struct format:
+        </p>
+        <pre style="background-color: white; color: black; padding: 10px; border-radius: 5px; overflow-x: auto;">
+    struct Task {
+        char name[14];            // Task name
+        int startMonth;           // First month of task
+        int endMonth;             // Final month of task
+        int dependencies[10];     // Dependencies
+        int n;                    // Number of dependencies
+    };
+        </pre>
+        <p>
+            A struct of structs was then manually created to represent each task.
+        </p>
+        <pre style="background-color: white; color: black; padding: 10px; border-radius: 5px; overflow-x: auto;">
+    struct Task tasks[10] = {   
+        {"Task A", 1, 2, {}, 0},  
+        {"Task B", 2, 2, {1}, 1}, 
+        {"Task C", 3, 4, {1, 2}, 2},
+        {"Task D", 6, 7, {3}, 1},  
+        {"Task E", 5, 6, {}, 0},
+        {"Task F", 6, 7, {4, 5}, 2},  
+        {"Task G", 7, 7, {6}, 1},
+        {"Task H", 8, 11, {7}, 1}, 
+        {"Task I", 9, 9, {5}, 1}, 
+        {"Task J", 10, 13, {8, 9}, 2}  
+    };
+        </pre>
+        <p>
+            This mapping format contains all the necessary information needed to print the Gantt chart using the outlined method.
+        </p>
+    
+        <h2 style="font-size: 28px; color: white;">How Are Tasks Edited and Changed?</h2>
+        <p>
+            Refer to the function <code>edit(struct Task tasks[], int n)</code> to see the code.
+            Note that the code handling user inputs for "Y/N" and "edit, test, quit" includes error handling.
+        </p>
+        <p>
+            Based on example questions ("enter name of task", "enter new name or type same name", "start month", "end month", "no. dependencies", "dependencies"), user inputs are captured and old values in the struct of structs are replaced with these new values.
+        </p>
+        <p>
+            This method was convenient for creating the <code>newGantt()</code> function, which prompts users to create a new Gantt chart. It omits the "enter new name or type same name" question and instead asks users how many tasks they want to include, then prints only the number of rows specified by the user.
+        </p>
+    
+        <h2 style="font-size: 28px; color: white;">How Was the Circular Dependency Search Implemented?</h2>
+        <p>
+            A recursive algorithm was used to search for circular dependencies. This algorithm checks each task dependency and its dependencies' dependencies. If a task is encountered more than once, a warning is returned. The "visitedTask" array is then reset, and the process reruns from the last dependency it visited. The function returns True if a circular dependency is found and False otherwise.
+        </p>
+    
+        <h2 style="font-size: 28px; color: white;">Git Repo:</h2>
+        <p>
+            <a href="https://csgitlab.ucd.ie/adam/2Y_assignment2" target="_blank" style="color: #007bff;">https://csgitlab.ucd.ie/adam/2Y_assignment2</a>
+        </p>
+        <p>
+            For any access issues, please contact me at <a href="mailto:adam.mcintyre@ucdconnect.ie" style="color: #007bff;">adam.mcintyre@ucdconnect.ie</a>. 
+            If there are any major problems running the code (e.g., code doesn't run at all), please also let me know. 
+            The code works fine on my machine using Windows, Eclipse, and Cygwin.
+        </p>
+    </section>
+    
+    
+    
+    <style>
+    .button-link {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: white;
+        color: black;
+        text-decoration: none;
+        border: 4px solid #ccc;
+        border-radius: 8px;
+        font-size: 18px;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .button-link:hover {
+        background-color: #e0e0e0;
+        color: #333;
+        border-color: #00800d;
+    }
+    </style>
+    
+    
+
+    
+
+    <footer>
+        <div class="footer-top-bar"></div>
+        <div class="footer-menu">
+            <div class="footer-menu-section">
+                <h3>Pages</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Resume</a></li>
+                </ul>
+            </div>
+            <div class="footer-menu-section">
+                <h3>Connect With Me</h3>
+                <ul class="social-icons">
+                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html>
